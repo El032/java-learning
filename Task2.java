@@ -5,13 +5,41 @@ public class Task2 {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите первое число: ");
-        int a = scanner.nextInt();
+        double a = scanner.nextDouble();
 
         System.out.print("Введите второе число: ");
-        int b = scanner.nextInt();
+        double b = scanner.nextDouble();
 
-        int sum = a + b;
-        System.out.println("Сумма = " + sum);
+        System.out.println("""
+Выберите арифметическую команду:
+1) Сумма
+2) Разность
+3) Частное
+4) Произведение
+""");
+
+        int d = scanner.nextInt();
+
+        switch (d) {
+            case 1:
+                System.out.println("Сумма = " + (a + b));
+                break;
+            case 2:
+                System.out.println("Разность = " + (a - b));
+                break;
+            case 3:
+                if (b == 0) {
+                    System.out.println("Ошибка: деление на ноль");
+                } else {
+                    System.out.println("Частное = " + (a / b));
+                }
+                break;
+            case 4:
+                System.out.println("Произведение = " + (a * b));
+                break;
+            default:
+                System.out.println("Неверный выбор операции");
+        }
 
         scanner.close();
     }
